@@ -1,0 +1,37 @@
+openapi: 3.0.0
+info:
+  version: "1.0.0"
+  title: Lab6 SVM in an API
+  description: A simple service to perform SVM on the IRIS dataset
+  termsOfService: 'http://swagger.io/terms/'
+  contact:
+    name: REST Service SVM Example
+  license:
+    name: Apache
+paths:
+  /experiment/svc/iris/C/<arg1>/kernel/<arg2>:
+    get:
+      tags:
+        - SVC
+      operationId: svm.iris_svm
+      description: perform svc
+      responses:
+        '200':
+          description: perform svm
+          content:
+            application/json:
+              schema: {}
+  /experiment/svc/iris/C/<arg1>/kernel/<arg2>/genfig/norm/<norm1>:
+    get:
+      tags:
+        - SVC
+      operationId: svm.gen_cof_mat
+      description: display confusion matrix
+      responses:
+        '200':
+          description: same plot
+          content:
+            application/json:
+              schema: {}
+servers:
+  - url: 'http://localhost:8080/lab8'
